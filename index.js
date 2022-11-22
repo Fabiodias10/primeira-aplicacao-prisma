@@ -8,8 +8,10 @@ const app = express();
 app.use(express.json());
 app.use(router);
 
-const port = process.env.PORTA;
+const port = process.env.PORT_SERVER;
 
-console.log(process.env.SENHA);
+console.log("Conectado no banco:", process.env.DATABASE_URL);
 
-app.listen(port, () => console.log(`Conectado na porta: ${port}`));
+app.listen(port, () =>
+  console.log(`Servidor conectado em: http://${process.env.DB_HOST}:${port}`)
+);

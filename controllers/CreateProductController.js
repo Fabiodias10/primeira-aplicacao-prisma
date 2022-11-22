@@ -6,7 +6,7 @@ const prismaClient = require("../database/prismaClient");
 module.exports = class CreateProductController {
   async handle(req, res) {
     const { name, barcode, price } = req.body;
-
+          
     const products = await prismaClient.products.create({
       data: {
         name,
@@ -15,6 +15,6 @@ module.exports = class CreateProductController {
       },
     });
 
-    return res.json(products);
+    return res(200).json(products);
   }
 };
